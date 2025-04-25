@@ -6,3 +6,8 @@ Feature: Authentication API Test
     When method POST
     Then status 200
     And match response == { token: '#string' }
+    * def authToken = response.token
+    * print 'Auth Token is:', authToken
+
+
+

@@ -13,7 +13,8 @@ class ExamplesTest {
         Results results = Runner.path(
                 List.of(
                     "classpath:examples/feature/auth.feature",
-                    "classpath:examples/feature/create-booking.feature"
+                    "classpath:examples/feature/create-booking.feature",
+                    "classpath:examples/feature/update-booking.feature"
                 )
         ).parallel(1); // Can change to .parallel(5) for parallel run
         assertEquals(0, results.getFailCount(), results.getErrorMessages());

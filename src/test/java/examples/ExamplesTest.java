@@ -4,21 +4,18 @@ import com.intuit.karate.Results;
 import com.intuit.karate.Runner;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import java.util.List;
 
 class ExamplesTest {
 
-    // @Test
-    // void testParallel() {
-    //     Results results = Runner.path("classpath:examples")
-    //             //.outputCucumberJson(true)
-    //             .parallel(5);
-    //     assertEquals(0, results.getFailCount(), results.getErrorMessages());
-    // }
-
     @Test
     void testParallel() {
-        Results results = Runner.path("classpath:examples") // Pointing to exact feature file
-                .parallel(1); // You can increase this number for parallel execution
+        Results results = Runner.path(
+                List.of(
+                    "classpath:examples/feature/auth.feature",
+                    "classpath:examples/feature/create-booking.feature"
+                )
+        ).parallel(1); // Can change to .parallel(5) for parallel run
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
 
